@@ -26,5 +26,6 @@ if __name = '__main__':
     x_train = df.drop('target', axis=1)
     y_train = df['target'].values
 
+    clf = LogisticRegression(random_state=0)
     
 
