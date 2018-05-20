@@ -1,2 +1,4 @@
-input/*
+*.csv
 *.7z
+*.pyc
+*.log
