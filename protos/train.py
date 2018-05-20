@@ -51,12 +51,16 @@ if __name__ =='__main__':
 
     # ------------モデル評価----------------------
 
+    df = load_test_data()
     x_test = df[use_cols].sort_values('id')
-    logger.info('data preparation end {}'.format(x_test.shape))
+
+    logger.info('test data load {}'.format(x_test.shape))
 
     pred_test = clf.predict_proba(x_test)
 
+    logger.info('test end')
+
     df_submit = pd.read_csv(SAMPLE_SUBMIT_FILE).sort_values('id')
-    df_submit['target'] = pred_test[:, 1]
+    df_submit['target'] = pred_test
 
     df_submit.to_csv(DIR + 'submit.csv', index=False)
